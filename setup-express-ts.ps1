@@ -69,25 +69,12 @@ $tsconfig = @"
 $tsconfig | Out-File -Encoding utf8 tsconfig.json
 Write-Host "[OK] tsconfig.json created."
 
-# === Create folders with README.txt descriptions ===
-$folders = @{
-    "src" = "Root folder containing all source code"
-    "src/config" = "Configuration files (env.ts, database URLs, etc.)"
-    "src/middleware" = "Middleware functions for requests (error handling, auth, logging)"
-    "src/routes" = "Express route definitions"
-    "src/controllers" = "Controller logic for routes"
-    "src/services" = "Business logic and services"
-    "src/utils" = "Utility functions and helpers"
-    "src/types" = "Custom TypeScript types and interfaces"
-    "src/schemas" = "Mongoose schemas/models"
-}
-
+# === Create folders ===
+$folders = @("src", "src/config", "src/middleware", "src/routes", "src/controllers", "src/services", "src/utils", "src/types","src/schemas")
 Write-Host "[*] Creating project folder structure..."
-foreach ($folder in $folders.Keys) {
+foreach ($folder in $folders) {
     Write-Host "  -> Creating folder: $folder"
     New-Item -ItemType Directory -Path $folder
-    # Create README.txt inside each folder
-    $folders[$folder] | Out-File -Encoding utf8 "$folder/README.txt"
 }
 
 # === .gitignore ===
@@ -225,9 +212,6 @@ A TypeScript + Express + MongoDB project generated with Essam's PowerShell setup
 Create a .env file with:
 PORT=$port
 DB_URL=$dbUrl
-
-## Folder Descriptions
-Each folder contains a README.txt explaining its purpose.
 "@
 $readme | Out-File -Encoding utf8 "README.md"
 Write-Host "[OK] README.md created."
@@ -265,7 +249,7 @@ Write-Host "[Dependencies] express, mongoose, cors, helmet, morgan, dotenv"
 Write-Host "[Dev Dependencies] typescript, ts-node, nodemon, @types/*, eslint, prettier, @typescript-eslint/*"
 Write-Host ""
 Write-Host "[Structure]"
-foreach ($folder in $folders.Keys) { Write-Host "  - $folder" }
+foreach ($folder in $folders) { Write-Host "  - $folder" }
 Write-Host ""
 Write-Host "[Scripts]"
 Write-Host "  npm run dev   -> start development server"
