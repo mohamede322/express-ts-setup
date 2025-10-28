@@ -58,7 +58,7 @@ cd express-ts-setup
 $latestSHA = (Invoke-RestMethod "https://api.github.com/repos/mohamede322/express-ts-setup/commits/main").sha
 
 # Download and run the latest script using that SHA
-iwr "https://cdn.jsdelivr.net/gh/mohamede322/express-ts-setup@$latestSHA/main.ps1" | iex
+iwr "https://cdn.jsdelivr.net/gh/mohamede322/express-ts-setup@$latestSHA/setup-express-ts.ps1" | iex
 ```
 
 This will:
@@ -141,7 +141,7 @@ To always use the latest setup script:
 $latestSHA = (Invoke-RestMethod "https://api.github.com/repos/mohamede322/express-ts-setup/commits/main").sha
 
 # Download and run the latest PowerShell setup script
-iwr "https://cdn.jsdelivr.net/gh/mohamede322/express-ts-setup@$latestSHA/main.ps1" | iex
+iwr "https://cdn.jsdelivr.net/gh/mohamede322/express-ts-setup@$latestSHA/setup-express-ts.ps1" | iex
 ```
 
 This ensures you always have the **latest project structure and scripts**.
