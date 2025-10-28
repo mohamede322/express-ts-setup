@@ -18,6 +18,7 @@ src/
   services/
   utils/
   types/
+  schemas/
 dist/
 node_modules/
 .vscode/
@@ -37,6 +38,7 @@ README.md
 * **services/** – Business logic / service layer
 * **utils/** – Helper functions
 * **types/** – TypeScript type definitions
+* **schemas/** – Mongoose schemas / database models
 * **dist/** – Compiled JavaScript (after `npm run build`)
 * **.vscode/** – Launch configuration for debugging
 
